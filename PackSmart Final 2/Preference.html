@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Preferences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #F7F7F7;
+    }
+
+    .profile-group {
+      padding: 1rem;
+    }
+
+    .profile-heading {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+    }
+
+    .form-container {
+      margin: 1.8rem;
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+    }
+
+    .input-field {
+      border-radius: 12px;
+      border: 2px solid #9A9A9A;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      letter-spacing: 0.12px;
+      color: #000;
+    }
+
+    .input-field:hover {
+      background-color: #E7E7E7;
+    }
+
+    .input-field:active,
+    .input-field.selected {
+      background-color: #2C64E4;
+      color: #fff;
+    }
+
+    .update-button {
+      border-radius: 12px;
+      background: #2C64E4;
+      box-shadow: 0px 4px 5px 0px rgba(44, 100, 228, 0.25), 3px 0px 5px 0px rgba(44, 100, 228, 0.25);
+      color: #fff;
+      padding: 1rem;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      letter-spacing: 0.12px;
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .update-button:hover {
+      cursor: pointer;
+      background-color: #3F6AF8;
+    }
+
+    .reveal {
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .reveal h4 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    #colorModal .color-input {
+      display: block;
+      margin: auto;
+      width: 60%;
+      height: 2rem;
+      border: none;
+      border-radius: 12px;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="grid-x align-middle profile-group">
+      <div class="cell small-1 text-left">
+        <a class="back-button" href="javascript:history.back()">
+          <img src="img/arrow-left.svg" alt="Back" style="width: 30px;">
+        </a>
+      </div>
+      <div class="cell auto text-center">
+        <h3 class="profile-heading">Preferences</h3>
+      </div>
+      <div class="cell small-1"></div>
+    </div>
+    <div class="form-container">
+      <div class="grid-x grid-margin-x">
+        <div class="cell auto">
+          <button class="input-field" data-open="myModal">Baggage Allowance</button>
+          <button class="input-field" data-open="bagsModal">Number of Checked Bags</button>
+          <button class="input-field" data-open="genderModal">Gender</button>
+          <button class="input-field" data-open="colorModal">Bag Colors</button>
+          <button class="input-field" data-open="arrivalDateModal">Estimate Arrival Date</button>
+          <div class="update-button" onclick="submitForm()">Update</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal" id="myModal" data-reveal>
+    <h4 id="modal-label">Baggage Allowance</h4>
+    <button class="input-field" onclick="selectOption(this)">10 kgs</button>
+    <button class="input-field" onclick="selectOption(this)">25 kgs</button>
+    <button class="input-field" onclick="selectOption(this)">35 kgs</button>
+    <button class="input-field" onclick="selectOption(this)">40 kgs</button>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="reveal" id="bagsModal" data-reveal>
+    <h4>Number of Checked Bags</h4>
+    <button class="input-field" onclick="selectOption(this)">One</button>
+    <button class="input-field" onclick="selectOption(this)">Two</button>
+    <button class="input-field" onclick="selectOption(this)">Three</button>
+    <button class="input-field" onclick="selectOption(this)">Four</button>
+    <button class="input-field" onclick="selectOption(this)">I don't know yet</button>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="reveal" id="genderModal" data-reveal>
+    <h4>Gender</h4>
+    <button class="input-field" onclick="selectOption(this)">Male</button>
+    <button class="input-field" onclick="selectOption(this)">Female</button>
+    <button class="input-field" onclick="selectOption(this)">Prefer not to say</button>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="reveal" id="colorModal" data-reveal>
+    <h4>Bag Color</h4>
+    <input type="color" id="color" name="color" class="color-input">
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="reveal" id="arrivalDateModal" data-reveal>
+    <h4>Estimate Arrival Date</h4>
+    <input type="date" id="arrival-date" class="input-field">
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+
+    let bagColor = '#000000';  // Default color
+
+    function submitForm() {
+      alert('Preferences updated successfully! Bag color: ' + bagColor);
+    }
+
+    function selectOption(button) {
+      const modalId = button.parentNode.id;
+      const modalButtons = document.querySelectorAll('#' + modalId + ' .input-field');
+      modalButtons.forEach(btn => btn.classList.remove('selected'));
+      button.classList.add('selected');
+    }
+
+    // Attach event listener to color input
+    document.querySelector('#color').addEventListener('input', function (e) {
+      bagColor = e.target.value;
+    }, false);
+  </script>
+</body>
+
+</html>

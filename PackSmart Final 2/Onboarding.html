@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding Screens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .onboarding-progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #aaa;
+            /* Change the initial color of the ellipses */
+            margin: 0 5px;
+        }
+
+        .onboarding-progress-dot.active {
+            background-color: #007BFF;
+            /* Change the color of the active ellipse */
+        }
+
+        /* Custom card style with box shadow */
+        .onboarding-card {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            /* Align the card content center */
+        }
+
+        /* Custom card style without box shadow for phone size */
+        @media (max-width: 640px) {
+            .onboarding-card {
+                box-shadow: none;
+            }
+        }
+
+        .onboarding-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .onboarding-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .onboarding-heading {
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .onboarding-paragraph {
+            text-align: left;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        /* Center align the button */
+        .onboarding-button-container {
+            text-align: center;
+        }
+
+        .onboarding-button {
+            width: 100%;
+            /* Set the button width to 100% */
+            border-radius: 12px;
+            border: 1px solid rgba(41, 45, 50, 0.00);
+            background: var(--primary-blue, #2C64E4);
+            box-shadow: 0px 4px 5px 0px rgba(44, 100, 228, 0.25), 3px 0px 5px 0px rgba(44, 100, 228, 0.25);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 1.5rem;
+        }
+
+        /* Responsive adjustments for the button */
+        @media (max-width: 640px) {
+            .onboarding-button {
+                width: 80%;
+                /* Reduce button width for smaller screens */
+                font-size: 16px;
+                /* Adjust font size for smaller screens */
+            }
+        }
+
+        /* Hide all onboarding screens by default */
+        .onboarding-screen {
+            display: none;
+        }
+
+        /* Show the active onboarding screen */
+        .onboarding-screen.active {
+            display: block;
+        }
+
+        /* Back button style */
+        .onboarding-back-button-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .onboarding-back-button {
+            font-size: 30px;
+        }
+
+        /* Progress dots */
+        .onboarding-progress-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .onboarding-progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #007BFF;
+            margin: 0 5px;
+        }
+
+        .onboarding-progress-dot.inactive {
+            background-color: #aaa;
+        }
+
+        h1 {
+            color: var(--neutral-black, #32302F);
+            font-family: "Outfit", "Helvetica Neue", Arial, sans-serif;
+            font-size: 1.5rem;
+            /* Zurb Foundation font size equivalent to 24px */
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: 0.36px;
+            margin-top: 1.875em;
+            ;
+        }
+
+        p {
+            color: var(--neutral-dark-light, #71727A);
+            font-family: "Outfit", "Helvetica Neue", Arial, sans-serif;
+            font-size: 0.875rem;
+            /* Zurb Foundation font size equivalent to 14px */
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            /* 19.6px */
+            letter-spacing: 0.14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <div class="onboarding-card">
+            <!-- Onboarding Screen 1 -->
+            <div class="onboarding-screen active" id="screen1">
+                <img class="onboarding-image" src="img/image1.png" alt="Dummy Image 1">
+                <div class="onboarding-progress-dots">
+                    <span class="onboarding-progress-dot active" id="dot1"></span>
+                    <span class="onboarding-progress-dot inactive" id="dot2"></span>
+                    <span class="onboarding-progress-dot inactive" id="dot3"></span>
+                </div>
+                <h1 class="onboarding-heading">Efficiency</h1>
+                <p class="onboarding-paragraph">Stay organized and stress-free with our checklist app for international
+                    Canada packing, covering essential items across various categories</p>
+                <div class="onboarding-button-container">
+                    <button class="onboarding-button" onclick="showNextScreen()">Next</button>
+                </div>
+            </div>
+
+            <!-- Onboarding Screen 2 -->
+            <div class="onboarding-screen" id="screen2">
+                <div class="onboarding-back-button-container" onclick="showPreviousScreen()">
+                    <img src="img/arrow-left.svg" class="onboarding-back-button"  alt="Back">
+                </div>
+                <img class="onboarding-image" src="img/image2.png" alt="Dummy Image 2">
+                <div class="onboarding-progress-dots">
+                    <span class="onboarding-progress-dot inactive" id="dot1"></span>
+                    <span class="onboarding-progress-dot active" id="dot2"></span>
+                    <span class="onboarding-progress-dot inactive" id="dot3"></span>
+                </div>
+                <h1 class="onboarding-heading">Convenience</h1>
+                <p class="onboarding-paragraph">Streamline your packing process with our checklist app, categorizing
+                    everything from clothing to electronics for your international Canada trip</p>
+                <div class="onboarding-button-container">
+                    <button class="onboarding-button" onclick="showNextScreen()">Next</button>
+                </div>
+            </div>
+
+            <!-- Onboarding Screen 3 -->
+            <div class="onboarding-screen" id="screen3">
+                <div class="onboarding-back-button-container" onclick="showPreviousScreen()">
+                    <img src="img/arrow-left.svg" class="onboarding-back-button"  alt="Back">
+                </div>
+                <img class="onboarding-image" src="img/image3.png" alt="Dummy Image 3">
+                <div class="onboarding-progress-dots">
+                    <span class="onboarding-progress-dot inactive" id="dot1"></span>
+                    <span class="onboarding-progress-dot inactive" id="dot2"></span>
+                    <span class="onboarding-progress-dot active" id="dot3"></span>
+                </div>
+                <h1 class="onboarding-heading">Optimization</h1>
+                <p class="onboarding-paragraph">Maximize efficiency and avoid unnecessary expenses with our checklist
+                    app, ensuring you pack only essential items for your international Canada adventure</p>
+                <div class="onboarding-button-container">
+                    <button class="onboarding-button" onclick="showNextScreen(); navigateToPage2();">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentScreen = 1;
+        const totalScreens = 3;
+
+        function showNextScreen() {
+            if (currentScreen < totalScreens) {
+                document.getElementById(`screen${currentScreen}`).classList.remove("active");
+                currentScreen++;
+                document.getElementById(`screen${currentScreen}`).classList.add("active");
+                updateProgressDots(currentScreen);
+            }
+        }
+
+        function showPreviousScreen() {
+            if (currentScreen > 1) {
+                document.getElementById(`screen${currentScreen}`).classList.remove("active");
+                currentScreen--;
+                document.getElementById(`screen${currentScreen}`).classList.add("active");
+                updateProgressDots(currentScreen);
+            }
+        }
+
+        function updateProgressDots(activeScreen) {
+            for (let i = 1; i <= totalScreens; i++) {
+                const dot = document.getElementById(`dot${i}`);
+                if (i === activeScreen) {
+                    dot.classList.add("active");
+                    dot.classList.remove("inactive");
+                } else {
+                    dot.classList.remove("active");
+                    dot.classList.add("inactive");
+                }
+            }
+        }
+        function navigateToPage2() {
+            // JavaScript code to navigate to the target page
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

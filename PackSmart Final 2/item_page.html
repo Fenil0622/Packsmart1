@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist Cards</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* New styles added */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      /* Added margin bottom */
+    }
+
+    .back-button {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      /* Reduced font size */
+    }
+
+    /* End of new styles */
+
+    .cn-card {
+      border-radius: 15px;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      margin: 10px 0 20px 0;
+    }
+
+    .cn-card input[type="checkbox"]:checked+label {
+      color: #a0a3a7;
+    }
+
+    .cn-card label {
+      margin-bottom: 0;
+    }
+
+    .cn-card textarea {
+      border: none;
+      resize: none;
+      outline: none;
+      padding: 5px 0 0 0;
+      margin: 10px 0 0 0;
+    }
+
+    .item-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fa-link {
+      font-size: 1rem;
+      color: #737373;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-family: Outfit;
+    }
+
+    .modal-content {
+      background-color: white;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      color: var(--neutral-black, #32302F);
+      font-family: Outfit;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      font-family: Outfit;
+    }
+
+    .photo-container {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .photo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Close button styles */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    /* Checklist item styles */
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .checklist-item img {
+      max-width: 100px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-container responsive-container">
+    <div class="grid-x grid-padding-x">
+      <div class="small-12 cell">
+        <!-- Back Button -->
+        <div class="container">
+          <button class="back-button">
+            <a href="home.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9499A2" width="24px"
+                height="24px">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+              </svg> Categories</a>
+          </button>
+        </div>
+        <!-- Title -->
+        <h1>Category 1</h1>
+        <!-- Cards -->
+        <div class="cn-card">
+          <form>
+            <div class="item-container">
+              <div>
+                <input type="checkbox" id="item1" /><label for="item1">Item 1</label>
+              </div>
+              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                onclick="openModal()">
+                <path
+                  d="M14.851 11.923c-.179-.641-.521-1.246-1.025-1.749-1.562-1.562-4.095-1.563-5.657 0l-4.998 4.998c-1.562 1.563-1.563 4.095 0 5.657 1.562 1.563 4.096 1.561 5.656 0l3.842-3.841.333.009c.404 0 .802-.04 1.189-.117l-4.657 4.656c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-1.952-1.951-1.952-5.12 0-7.071l4.998-4.998c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464.493.493.861 1.063 1.105 1.672l-.787.784zm-5.703.147c.178.643.521 1.25 1.026 1.756 1.562 1.563 4.096 1.561 5.656 0l4.999-4.998c1.563-1.562 1.563-4.095 0-5.657-1.562-1.562-4.095-1.563-5.657 0l-3.841 3.841-.333-.009c-.404 0-.802.04-1.189.117l4.656-4.656c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464 1.951 1.951 1.951 5.119 0 7.071l-4.999 4.998c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-.494-.495-.863-1.067-1.107-1.678l.788-.785z" />
+              </svg>
+
+            </div>
+            <textarea placeholder="Add your notes here..."></textarea>
+          </form>
+        </div>
+        <!-- Modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span> <!-- Close button -->
+            <h2>Choose Your Item</h2>
+            <div class="photo-container">
+              <div class="photo">
+                <img src="img/tooth.jpeg" alt="Photo 1">
+                <h3>Brush (Link 1)</h3>
+                <p>Price: ₹85/- </p>
+                <p>Amazon link: <a
+                    href="https://www.amazon.ca/Oral-Sensitive-Vitality-Toothbrush-Rechargeable/dp/B0B5B5LSNT/ref=sr_1_2?hvadid=600495697591&hvdev=c&hvlocphy=1002451&hvnetw=g&hvqmt=e&hvrand=5618827888969582315&hvtargid=kwd-317771364457&hydadcr=7188_13256257&keywords=amazon+toothbrush&qid=1691162378&sr=8-2">Click
+                    here</a></p>
+              </div>
+              <div class="photo">
+                <img src="img/brilliantblacktoothbrush.jpeg" alt="Photo 2">
+                <h3>Brush (Link 2)</h3>
+                <p>Price: ₹70/- </p>
+                <p>Amazon link: <a
+                    href="https://www.amazon.ca/Philips-Sonicare-ProtectiveClean-Rechargeable-HX6462/dp/B084X7Y1KS/ref=sr_1_1?hvadid=600495697591&hvdev=c&hvlocphy=1002451&hvnetw=g&hvqmt=e&hvrand=5618827888969582315&hvtargid=kwd-317771364457&hydadcr=7188_13256257&keywords=amazon+toothbrush&qid=1691162378&sr=8-1">Click
+                    here</a></p>
+              </div>
+              <div class="photo">
+                <img src="img/440.jpeg" alt="Photo 3">
+                <h3>Brush (Link 3)</h3>
+                <p>Amazon link: <a href="#">Click here</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cn-card">
+          <form>
+            <div class="item-container">
+              <div>
+                <input type="checkbox" id="item2" /><label for="item2">Item 2</label>
+              </div>
+              <i class="fa fa-link"></i>
+            </div>
+            <textarea placeholder="Add your notes here..."></textarea>
+          </form>
+        </div>
+        <div class="cn-card">
+          <form>
+            <div class="item-container">
+              <div>
+                <input type="checkbox" id="item3" /><label for="item3">Item 3</label>
+              </div>
+              <i class="fa fa-link"></i>
+            </div>
+            <textarea placeholder="Add your notes here..."></textarea>
+          </form>
+        </div>
+        <div class="cn-card">
+          <form>
+            <div class="item-container">
+              <div>
+                <input type="checkbox" id="item4" /><label for="item4">Item 4</label>
+              </div>
+              <i class="fa fa-link"></i>
+            </div>
+            <textarea placeholder="Add your notes here..."></textarea>
+          </form>
+        </div>
+        <div class="cn-card">
+          <form>
+            <div class="item-container">
+              <div>
+                <input type="checkbox" id="item5" /><label for="item5">Item 5</label>
+              </div>
+              <i class="fa fa-link"></i>
+            </div>
+            <textarea placeholder="Add your notes here..."></textarea>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).foundation();
+    function openModal() {
+      // Get the modal element
+      const modal = document.getElementById('myModal');
+      // Show the modal by changing its display property to "block"
+      modal.style.display = 'block';
+    }
+
+    function closeModal() {
+      // Get the modal element
+      const modal = document.getElementById('myModal');
+      // Close the modal by changing its display property to "none"
+      modal.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the modal content, do nothing (stop event propagation)
+    document.querySelector('.modal-content').addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener('click', (event) => {
+      const modal = document.getElementById('myModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

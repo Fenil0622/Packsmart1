@@ -1,0 +1,246 @@
+.responsive-container {
+  margin: 0 auto;
+  /* Center the container horizontally */
+  max-width: 100%;
+  /* Set the maximum width of the container */
+  padding: 20px;
+  /* Add padding around the content */
+  box-sizing: border-box;
+  /* Include padding in the total width */
+}
+
+a{
+  color: black;
+}
+
+/* Status bar styles */
+.status-wrapper {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.status-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+}
+
+/* Status progress styles */
+.status-progress {
+  position: absolute;
+  width: 0;
+  height: 8px;
+  left: 0;
+  top: 0;
+  background: #FFB100;
+  border-radius: 7px;
+  transition: width 0.3s ease-in-out;
+}
+
+
+/* Back and Skip */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skip-button {
+  background-color: transparent;
+  /* Set background color to transparent */
+  border: none;
+  /* Remove border */
+  padding: 0;
+  /* Remove padding */
+  color: inherit;
+  /* Inherit text color from parent */
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Center alignment for content */
+.center {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Main content styles */
+#main-content {
+  font-size: 700;
+  font-family: 'Outfit', sans-serif;
+}
+
+.custom-input {
+
+  padding-left: 40px;
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+  height: 59px;
+  border-radius: 12px;
+  border: 1px solid rgba(116, 116, 116, 0.30);
+  background: #FFF;
+}
+
+.button-container {
+  text-align: center;
+  color: black;
+  font-family: 'Outfit', sans-serif;
+}
+
+.input-group {
+  position: relative;
+}
+
+i {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  color: grey;
+}
+
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #756F6F;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.color-picker {
+  display: none;
+}
+
+.input-group .input-dot {
+  width: 1rem;
+  height: 1rem;
+  background-color: lightgrey;
+  border-radius: 100%;
+  position: absolute;
+  right: 24px;
+  top: 20px;
+}
+
+
+
+.bodytext {
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-button {
+  background-color: #2C64E4;
+  border: 1px solid rgba(41, 45, 50, 0.00);
+  border-radius: 12px;
+  padding: 7px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  height: 44px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.custom-button>a {
+  color: white;
+
+}
+
+
+/* Color Selector Card Styles */
+.color-selector-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.color-selector-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9499A2;
+}
+
+.color-selector-body {
+  text-align: center;
+}
+
+.color-selector-body h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 8px;
+  cursor: pointer;
+}
+
+/* Media Query for iPad */
+@media only screen and (max-width: 1024px) {
+  .color-selector-card {
+    width: 280px;
+  }
+}
+
+/* Media Query for iPhone */
+@media only screen and (max-width: 640px) {
+  .color-selector-card {
+    width: 240px;
+  }
+}
+
+
+
+@media only screen and (max-width: 640px) {
+  .responsive-input {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .input-dot {
+    right: 14px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .responsive-input {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .input-dot {
+    right: 14px;
+  }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account</title>
+  <style>
+    /* Additional custom styles can be added here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+      /* Set the background color for the entire page */
+    }
+
+    .back-button {
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .back-button:hover {
+      cursor: pointer;
+    }
+
+    .account-group {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      /* Set white background for the group */
+      padding: 1rem;
+    }
+
+    .account-heading {
+      margin: 0;
+      /* Removed margin for h3 */
+      font-size: 1.5rem;
+      /* Changed to h3 size */
+      margin-left: 1rem;
+      /* Added some space between back arrow and heading */
+    }
+
+    .settings-card {
+      border-radius: 1.2rem;
+      background: #fff;
+      box-shadow: 0px 0.4rem 1rem 0px rgba(227, 212, 212, 0.40);
+      padding: 1.5rem 1.5rem .4rem 1.2rem;
+      /* Increased the padding to 1.5rem on the left and right sides */
+      margin: 1.8rem;
+      /* Increased the margin above the card to 1.5rem */
+      margin-top: 3rem;
+    }
+
+    .settings-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .settings-item-icon {
+      width: 1rem;
+      /* Set icon width to 1rem */
+      height: 1rem;
+      /* Set icon height to 1rem */
+      margin-right: 1rem;
+      /* Adjusted the margin to 1rem */
+      font-size: 1rem;
+      /* Adjusted icon font size to 1rem */
+    }
+
+    .settings-item-title {
+      flex: 1;
+    }
+
+    .arrow-button {
+      font-size: 2rem;
+      /* Set the right arrow to touch the edge of the card */
+      margin-left: auto;
+    }
+
+    /* Add the divider style */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: #E0E0E0;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      /* Decreased the margin to 0.5rem */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="account-group">
+    <div class="back-button" onclick="goBack()">&larr;</div>
+    <h3 class="account-heading">Account</h3>
+  </div>
+  <div class="settings-card">
+    <!-- Settings Item 1: Profile -->
+    <div class="settings-item">
+      <div class="settings-item-icon">&#x1F464;</div> <!-- Replace this with your custom Profile icon SVG -->
+      <div class="settings-item-title">Profile</div>
+      <div class="arrow-button" onclick="goProfile()">&#8594;</div>
+      <!-- Replace this with your custom right arrow icon SVG -->
+    </div>
+    <div class="divider"></div> <!-- Divider below Profile -->
+    <!-- Settings Item 2: My Preference -->
+    <div class="settings-item">
+      <div class="settings-item-icon">&#x1F4DD;</div> <!-- Replace this with your custom My Preference icon SVG -->
+      <div class="settings-item-title">My Preference</div>
+      <div class="arrow-button" onclick="goPreference()">&#8594;</div>
+      <!-- Replace this with your custom right arrow icon SVG -->
+    </div>
+    <div class="divider"></div> <!-- Divider below My Preference -->
+    <!-- Settings Item 3: Language -->
+    <div class="settings-item">
+      <div class="settings-item-icon">&#x1F310;</div>
+      <!-- Replace this with your custom Language icon SVG -->
+      <div class="settings-item-title">Language</div>
+      <div class="arrow-button" onclick="goLanguage()">&#8594;</div>
+      <!-- Replace this with your custom right arrow icon SVG -->
+    </div>
+    <!-- No divider below Language -->
+  </div>
+
+  <script>
+    // JavaScript function to go back
+    function goBack() {
+      window.location.href = "home.html";
+    }
+    function goProfile() {
+      window.location.href = "profile.html";
+    }
+    function goPreference() {
+      window.location.href = "preference.html";
+    }
+    function goLanguage() {
+      window.location.href = "languages.html";
+    }
+  </script>
+</body>
+
+</html>

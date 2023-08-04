@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--Zurb-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calender</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites/dist/css/foundation.min.css">
+
+  <!--Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Container  -->
+  <div class="responsive-container">
+
+    <!-- Back Button and Skip  -->
+    <div class="container">
+      <button class="back-button">
+        <a href="gender.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="24px" height="24px">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+          </svg>
+        </a>
+      </button>
+
+      <button class="skip-button"><a href="home.html">Skip </a></button>
+    </div>
+
+    <div class="status-wrapper">
+      <div class="status-bar">
+        <div class="status-progress"></div>
+      </div>
+    </div>
+
+    <div class="center">
+      <h1 id="main-content" class="text-center text-xxlarge"><b>Estimated Arrival Date in Canada</b></h1>
+      <p class="text-center">Share your estimated arrival date in Canada for deadline notifications</p>
+    </div>
+
+    <div class="calendar-box">
+      <!-- Calendar input -->
+      <input type="date" id="arrival-date">
+    </div>
+
+    <!-- Button below the calendar -->
+    <div class="medium-12 cell button-container">
+      <button class="custom-button2" id="btn-con">Continue</button>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites/dist/js/foundation.min.js"></script>
+  <script>
+    // JavaScript code for updating the progress bar
+    const totalScreens = 5; // Total number of screens
+    const currentScreen = 5; // Current screen (0-indexed)
+
+    const progressPercentage = (currentScreen / (totalScreens - 1)) * 100;
+    const progressBar = document.querySelector('.status-progress');
+    progressBar.style.width = `${progressPercentage}%`;
+
+    document.getElementById("btn-con").addEventListener("click", function () {
+      window.location.href = "home.html";
+    });
+
+    // Initialize Foundation components
+    $(document).foundation();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,495 @@
+.responsive-container {
+  margin: 0 auto;
+  /* Center the container horizontally */
+  max-width: 100%;
+  /* Set the maximum width of the container */
+  padding: 20px;
+  /* Add padding around the content */
+  box-sizing: border-box;
+  /* Include padding in the total width */
+}
+
+a {
+  color: black;
+
+}
+
+
+/* Back and Skip */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skip-button {
+  background-color: transparent;
+  /* Set background color to transparent */
+  border: none;
+  /* Remove border */
+  padding: 0;
+  /* Remove padding */
+  color: inherit;
+  /* Inherit text color from parent */
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Center alignment for content */
+.center {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Outfit', sans-serif;
+
+}
+
+/* Main content styles */
+#main-content {
+  font-size: 700;
+  font-family: 'Outfit', sans-serif;
+}
+
+#after-arrival {
+  font-size: 1.8rem;
+  padding-top: 0;
+  margin-bottom: 2rem;
+  ;
+  font-family: 'Outfit';
+
+}
+
+.custom-button2 {
+  background-color: #2C64E4;
+  border: 1px solid rgba(41, 45, 50, 0.00);
+  border-radius: 12px;
+  padding: 7px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  height: 44px;
+  width: 100%;
+  font-size: 18px;
+  margin-top: 80px;
+}
+
+
+/* Button group styles */
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.button-group .button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 16px;
+  gap: 20px;
+  height: 59px;
+  border-radius: 12px;
+  border: 1px solid rgba(116, 116, 116, 0.30);
+  background: #FFF;
+
+  transition: background-color 0.3s;
+  color: inherit;
+}
+
+.button-group .button:hover,
+.button-group .button:active,
+.button-group .button.selected {
+  background-color: #2C64E4;
+  color: white;
+}
+
+/* Status bar styles */
+.status-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: #E6E6E6;
+  border-radius: 7px;
+  margin-top: 20px;
+}
+
+/* Status progress styles */
+.status-progress {
+  position: absolute;
+  width: 0;
+  height: 8px;
+  left: 0;
+  top: 0;
+  background: #FD853A;
+  border-radius: 7px;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Text color for buttons and body */
+.button-group .button,
+body {
+  color: #333333;
+}
+
+/* Styling the calendar box */
+.calendar-box {
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid #CCC;
+  border-radius: 7px;
+  padding: 20px;
+  /* Center aligning the calendar within the box */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 640px) {
+
+  /* Adjust margin for center section */
+  .center {
+    margin-top: 20px;
+  }
+}
+
+#main-content {
+  font-size: 700;
+  /* Default font size for larger screens */
+}
+
+@media (max-width: 640px) {
+  #main-content {
+    font-size: 500;
+    /* Font size for screens up to 640px */
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  #main-content {
+    font-size: 600;
+    /* Font size for screens between 641px and 1024px */
+  }
+}
+
+@media (min-width: 1025px) {
+  #main-content {
+    font-size: 700;
+    /* Font size for screens larger than 1024px */
+  }
+}
+
+/* Card Categories */
+.card-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+  gap: 0.8125rem;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #EEE;
+}
+
+
+
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10.7%;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.photo-placeholder img {
+  max-width: 100%;
+  /* max-height: 100%; */
+  object-fit: cover;
+  border-radius: 10.7%;
+  /* You can add additional styles to the image if needed */
+}
+
+/* Styles for the container with the SVG icon and label */
+.header-section {
+  display: flex;
+  align-items: center;
+  /* Center align the SVG icon and label along the cross-axis */
+  gap: 0.875rem;
+}
+
+.header-icon {
+  width: auto;
+  height: 1rem;
+  /* Adjust as needed */
+}
+
+.label-header {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 0.875rem;
+  /* Space below the label header for responsive design in Foundation */
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+
+
+.chip {
+  display: inline-flex;
+  padding: 4px 10px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  border-radius: 200px;
+  border: 1px solid rgba(91, 89, 86, 0.10);
+  background: rgba(126, 126, 126, 0.10);
+  margin-bottom: 0.875rem;
+  /* Space below the chip for responsive design in Foundation */
+}
+
+.info-text {
+  font-size: 1rem;
+  margin-bottom: 0.875rem;
+  /* Space below the additional info text for responsive design in Foundation */
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #E9EFFF;
+  box-shadow: 0px 4px 26px 0px rgba(2, 29, 92, 0.20);
+  z-index: 10;
+  border-radius: 100px;
+}
+
+.nav-link-container {
+  padding: 1rem 0;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: #9D9BA9;
+}
+
+.nav-link.active {
+  color: #2C64E4;
+}
+
+.nav-link:hover .nav-label {
+  color: #9D9BA9;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  /* 12px equivalent for standard 16px root size */
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
+
+/* Card Progress */
+.card-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 20px;
+  background-color: #F7F7F7;
+}
+
+/* Status bar styles */
+.status-wrapper {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.status-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+}
+
+/* Status progress styles */
+.status-progress {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #FFB100;
+  border-radius: 7px;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Card Header */
+.card-header {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: black;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Card Text */
+.card-text {
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  color: black;
+  margin-top: 0;
+}
+
+/* Bold Text */
+.bold-text {
+  font-weight: bold;
+}
+
+/* Search Bar */
+.search-bar {
+  background: linear-gradient(0deg, #EEE 0%, #EEE 100%), #E3E3E8;
+  border-radius: 10px;
+  /* padding: 5px 10px; */
+  margin-bottom: 20px;
+}
+
+.search-label {
+  color: #838389;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  margin: 10px;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  color: #838389;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  border-radius: 10px;
+  margin: 5px;
+  /* padding: 5px; */
+  outline: none;
+  box-shadow: none !important;
+  /* Remove default Foundation input box shadow */
+  height: 30px;
+  /* Adjust the height as needed */
+}
+
+.input-group-addon {
+  background: transparent;
+  border: none;
+  /* padding: 0; */
+  height: 30px;
+  /* Adjust the height to match the input height */
+  margin: 5px;
+  margin-right: 1rem;
+}
+
+.input-group-addon i {
+  color: #838389;
+  font-size: 14px;
+  /* Adjust the icon size as needed */
+}
+
+.custom-input {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding-left: 40px;
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+  height: 59px;
+}
+
+.button-container {
+  text-align: center;
+  color: black;
+  font-family: 'Outfit', sans-serif;
+}
+
+.input-group {
+  position: relative;
+}
+
+i {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  color: grey;
+}
+
+.input-group .input-dot {
+  width: 1rem;
+  height: 1rem;
+  background-color: lightgrey;
+  border-radius: 100%;
+  position: absolute;
+  right: 24px;
+  top: 20px;
+}
+
+.bodytext p {
+  font-family: 'Outfit', sans-serif;
+}
+
+.custom-button {
+  background-color: #ccc;
+  border-radius: 50px;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  width: 200px;
+  color: black;
+}
+
+@media only screen and (max-width: 640px) {
+  .responsive-input {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .input-dot {
+    right: 14px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .responsive-input {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .input-dot {
+    right: 14px;
+  }
+}

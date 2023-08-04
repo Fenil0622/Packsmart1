@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Zurb-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites/dist/css/foundation.min.css">
+    <link rel="stylesheet" href="./foundation.css">
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="responsive-container">
+    <div class="align-right">
+        <a href="account.html"> <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45.532 45.532" xml:space="preserve" width="24px"
+                height="24px" style="fill: blue;">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g>
+                        <path d="M22.766,0.001C10.194,0.001,0,10.193,0,22.766s10.193,22.765,22.766,22.765c12.574,0,22.766-10.192,
+                22.766-22.765 S35.34,0.001,22.766,0.001z M22.766,6.808c4.16,0,7.531,3.372,7.531,7.53c0,4.159-3.371,
+                7.53-7.531,7.53 c-4.158,0-7.529-3.371-7.529-7.53C15.237,10.18,18.608,6.808,22.766,6.808z M22.761,
+                39.579c-4.149,0-7.949-1.511-10.88-4.012 c-0.714-0.609-1.126-1.502-1.126-2.439c0-4.217,3.413-7.592,
+                7.631-7.592h8.762c4.219,0,7.619,3.375,7.619,7.592 c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,
+                26.911,39.579,22.761,39.579z">
+                        </path>
+                    </g>
+                </g>
+            </svg></a>
+    </div>
+
+    <!-- search bar  -->
+    <div class="search-bar">
+        <div class="input-group">
+            <input type="text" id="quick-find" class="search-input" placeholder="       Quick Find">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
+    </div>
+
+
+
+    <!-- progress bar  -->
+    <div class="cell small-12 medium-6 large-4">
+        <div class="card card-progress">
+            <div class="status-wrapper">
+                <div class="status-bar">
+                    <div class="status-progress"></div>
+                </div>
+            </div>
+            <h4 class="card-header">Total Packing Progress</h4>
+            <p class="card-text">
+                <span class="bold-text">12/64</span> items packed
+            </p>
+        </div>
+    </div>
+
+
+
+
+    <!-- Container  -->
+    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-4 margin-1 small-margin-0">
+
+
+        <!-- Your card here -->
+        <!-- Repeat for each card -->
+        <div class="cell">
+            <div class="card card-custom">
+
+                <div class="photo-placeholder"> <a onclick="goToItemPage(); return false;"> <img
+                            src="./img/pexels-karol-d-325153.JPG" alt="Image description"></a> </div>
+
+                <div class="card-section">
+                    <div class="header-section">
+                        <img src="./img/Circle-Icon-Grp.svg" alt="Icon description" class="header-icon">
+                        <h4 class="label-header">ELECTRONICS</h4>
+                    </div>
+                    <div class="chip">
+                        <span>2/4 ITEMS PACKED</span>
+
+                    </div>
+                    <h5>Pro Tip:</h5>
+                    <p class="info-text">
+                        You could skip Some items in ‘GOOD TO HAVE’ Category but make sure you have every item from
+                        ‘MUST HAVE’ Category.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="card card-custom">
+                <div class="photo-placeholder"> <a href="item_page.html"><img
+                            src="./img/carry-on-suitcase-packing-OVERPACK0322-40943c9bfc324620a6a29dd8ad3dc986.jpg"
+                            alt="Image description"></a>
+                </div>
+
+                <div class="card-section">
+                    <div class="header-section">
+                        <img src="./img/Circle-Icon-Grp.svg" alt="Icon description" class="header-icon">
+                        <h4 class="label-header">LUGGAGE & BAGS</h4>
+                    </div>
+                    <div class="chip">
+                        <span>2/4 ITEMS PACKED</span>
+                    </div>
+                    <h5>Pro Tip:</h5>
+                    <p class="info-text">
+                        Always Buy ‘PolyPropylene’ Kind of bags and NOT ‘Polycarbonate’, they are lightweight and Strong
+                        plus they have shell design.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="card card-custom">
+                <div class="photo-placeholder"> <a href="Medicine.html"><img
+                            src="./img/medakit-ltd-9b4QLnWR3Sk-unsplash.jpg" alt="Image description"></a>
+                </div>
+                <div class="card-section">
+                    <div class="header-section">
+                        <img src="./img/Circle-Icon-Grp.svg" alt="Icon description" class="header-icon">
+                        <h4 class="label-header">MEDICINES</h4>
+
+                    </div>
+                    <div class="chip">
+                        <span>2/4 ITEMS PACKED</span>
+                    </div>
+                    <h5>Pro Tip:</h5>
+                    <p class="info-text">
+                    <ul>
+                        <li>Make Sure To Get a Doctor's Prescription.</li>
+                        <li>Pack multi-vitamins for a year.</li>
+
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="card card-custom">
+                <div class="photo-placeholder"> <a href="item_page.html"><img src="./img/1.jpg"
+                            alt="Image description"></a>
+                </div>
+                <div class="card-section">
+                    <div class="header-section">
+                        <img src="./img/Circle-Icon-Grp.svg" alt="Icon description" class="header-icon">
+                        <h4 class="label-header">OTHERS</h4>
+                    </div>
+                    <div class="chip">
+                        <span>2/4 ITEMS PACKED</span>
+                    </div>
+                    <h5>Pro Tip:</h5>
+                    <p class="info-text">
+                    <ul>
+                        <li>Everything here is extremely important so DO NOT SKIP ANYTHING</li>
+
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="card card-custom">
+                <div class="photo-placeholder"> <a href="item_page.html"><img
+                            src="./img/pexels-karolina-grabowska-4202329.jpg" alt="Image description"></a>
+                </div>
+
+                <div class="card-section">
+                    <div class="header-section">
+                        <img src="./img/Circle-Icon-Grp.svg" alt="Icon description" class="header-icon">
+                        <h4 class="label-header">Personal Hygiene</h4>
+                    </div>
+                    <div class="chip">
+                        <span>2/4 ITEMS PACKED</span>
+                    </div>
+                    <h5>Pro Tip:</h5>
+                    <p class="info-text">
+                    <ul>
+                        <li>Feel free to add your stuff.</li>
+                        <li>Do NOT carry any of these items in cabin bag.</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="card card-custom">
+                <div class="photo-placeholder"> <a href="item_page.html"><img
+                            src="./img/nicole-geri-gMJ3tFOLvnA-unsplash.jpg" alt="Image description"></a>
+                </div>
+                <div class="card-section">
+                    <div class="header-section">
+                        <img src="./img/Circle-Icon-Grp.svg" alt="Icon description" class="header-icon">
+                        <h4 class="label-header">IMPORTANT DOCUMENTS</h4>
+                    </div>
+                    <div class="chip">
+                        <span>2/4 ITEMS PACKED</span>
+                    </div>
+                    <h5>Pro Tip:</h5>
+                    <p class="info-text">
+                    <ul>
+                        <li>Everything here is Important.</li>
+                        <li>Carry 2 extra photocopies of each documents.</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="card card-custom">
+                <div class="photo-placeholder"> <a href="item_page.html"><img
+                            src="./img/calum-lewis-vA1L1jRTM70-unsplash.jpg" alt="Image description"></a>
+                </div>
+                <div class="header-section">
+                    <img src="./img/Circle-Icon-Grp.svg" alt="Icon description" class="header-icon">
+                    <h4 class="label-header">UTENSILS & SPICES</h4>
+                </div>
+                <div class="chip">
+                    <span>2/4 ITEMS PACKED</span>
+                </div>
+
+                <h5>Pro Tip:</h5>
+                <p class="info-text">
+                <ul>
+                    <li>Always ask your mom about this Part.</li>
+                    <li>Pack multi-vitamins for a year.</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- card end  -->
+    </div>
+
+
+    <!-- BOTTOm NAV  -->
+    <div class="grid-x grid-margin-x sticky bottom-nav">
+        <div class="cell small-6 text-center nav-link-container">
+            <a href="home.html" class="nav-link active">
+                <img src="./img/category-icon.svg" alt="Categories Icon" class="nav-icon">
+                <span class="nav-label">Categories</span>
+            </a>
+        </div>
+        <div class="cell small-6 text-center nav-link-container">
+            <a href="after_arrival.html" class="nav-link">
+                <img src="./img/After-Arival-icon-unpress.svg" alt="After Arrival Icon" class="nav-icon">
+                <span class="nav-label">After Arrival</span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites/dist/js/foundation.min.js"></script>
+    <script>
+        // JavaScript code for updating the progress bar
+        const totalScreens = 5; // Total number of screens
+        const currentScreen = 1; // Current screen (0-indexed)
+
+        const progressPercentage = (currentScreen / (totalScreens - 1)) * 100;
+        const progressBar = document.querySelector('.status-progress');
+        progressBar.style.width = `${progressPercentage}%`;
+
+        // Initialize Foundation components
+        $(document).foundation();
+        function goToItemPage() {
+            // Perform any necessary actions before redirecting (if needed)
+
+            // Redirect to the item_page.html
+            window.location.href = "item_page.html";
+        }
+
+    </script>
+
+
+</body>
+
+</html>

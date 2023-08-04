@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Languages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        .grid-container {
+            padding: 1rem;
+        }
+
+
+        .language-group {
+            padding: 1rem;
+            margin-bottom: 50px;
+        }
+
+        .Language-heading {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+        }
+
+        .language-item {
+            padding: 0.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .language-item label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-item span {
+            font-size: 16px;
+        }
+
+        .language-item div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .language-item small {
+            color: #adadad;
+            font-family: 'Outfit', sans-serif;
+            font-weight: normal;
+            font-size: 13px;
+        }
+
+        /* Custom Radio Button Styles */
+        .language-item input[type="radio"] {
+            display: none;
+        }
+
+        .language-item input[type="radio"]+label:before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ADADAD;
+            margin-right: 10px;
+            vertical-align: middle;
+            text-align: center;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .language-item input[type="radio"]:checked+label:before {
+            background: #0C8CE9;
+            border: none;
+            border: 1px solid #ADADAD;
+
+        }
+
+        .update-button {
+            border-radius: 12px;
+            background: #2C64E4;
+            color: #fff;
+            padding: 1rem;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%;
+            letter-spacing: 0.12px;
+            width: 100%;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .update-button:hover {
+            cursor: pointer;
+            background-color: #3F6AF8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <div class="grid-x align-middle language-group">
+            <div class="cell small-1 text-left">
+                <a href="javascript:history.back()">
+                    <img src="img/arrow-left.svg" alt="Back" style="width: 30px;">
+                </a>
+            </div>
+            <div class="cell auto text-center">
+                <h3 class="Language-heading">language</h3>
+            </div>
+            <div class="cell small-1"></div>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="english" name="language" />
+            <label for="english">
+                <div>
+                    <span style="font-family: 'Outfit', sans-serif; font-weight: 600;">English</span>
+                    <small>English</small>
+                </div>
+            </label>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="punjabi" name="language" />
+            <label for="punjabi">
+                <div>
+                    <span style="font-family: 'Noto Sans Gurmukhi', sans-serif;">ਪੰਜਾਬੀ</span>
+                    <small>Punjabi</small>
+                </div>
+            </label>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="hindi" name="language" />
+            <label for="hindi">
+                <div>
+                    <span style="font-family: 'Noto Sans Devanagari', sans-serif;">हिन्दी</span>
+                    <small>Hindi</small>
+                </div>
+            </label>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="gujarati" name="language" />
+            <label for="gujarati">
+                <div>
+                    <span style="font-family: 'Noto Sans Gujarati', sans-serif;">ગુજરાતી</span>
+                    <small>Gujarati</small>
+                </div>
+            </label>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="marathi" name="language" />
+            <label for="marathi">
+                <div>
+                    <span style="font-family: 'Noto Sans Devanagari', sans-serif;">मराठी</span>
+                    <small>Marathi</small>
+                </div>
+            </label>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="kannada" name="language" />
+            <label for="kannada">
+                <div>
+                    <span style="font-family: 'Noto Sans Kannada', sans-serif;">ಕನ್ನಡ</span>
+                    <small>Kannada</small>
+                </div>
+            </label>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="malayalam" name="language" />
+            <label for="malayalam">
+                <div>
+                    <span style="font-family: 'Noto Sans Malayalam', sans-serif;">മലയാളം</span>
+                    <small>Malayalam</small>
+                </div>
+            </label>
+        </div>
+
+        <div class="language-item">
+            <input type="radio" id="tamil" name="language" />
+            <label for="tamil">
+                <div>
+                    <span style="font-family: 'Noto Sans Tamil', sans-serif;">தமிழ்</span>
+                    <small>Tamil</small>
+                </div>
+            </label>
+        </div>
+
+        <button class="update-button">Apply</button>
+    </div>
+</body>
+
+</html>

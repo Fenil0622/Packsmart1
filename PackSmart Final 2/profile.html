@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <!-- Link to Zurb Foundation CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
+  <style>
+    /* Additional custom styles can be added here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7; /* Set the background color for the entire page */
+    }
+
+    .back-button {
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+    .back-button:hover {
+      cursor: pointer;
+    }
+
+    .profile-group {
+      display: flex;
+      align-items: center;
+      background-color: #fff; /* Set white background for the group */
+      padding: 1rem;
+    }
+    .profile-heading {
+      margin: 0; /* Removed margin for h3 */
+      align-items: center;
+      font-size: 1.5rem; /* Changed to h3 size */
+      justify-content: center; /* Center the items horizontally */
+      background-color: #fff; /* Set white background for the group */
+    }
+
+    .form-container {
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      margin: 1.8rem;
+    }
+    .input-field {
+      border-radius: 8px;
+      border: 1.5px solid #9A9A9A;
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%; /* 16.8px */
+      letter-spacing: 0.12px;
+    }
+    .error-field {
+      border-color: #D14644;
+      color: #D14644;
+    }
+    .error-message {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%; /* 14.4px */
+      letter-spacing: 0.12px;
+      color: #D14644; /* Set error message color to red */
+      margin-top: 0.5rem; /* Add margin-top for the error messages */
+    }
+    /* Style for the Date of Birth input fields */
+    .dob-inputs {
+      display: flex;
+      align-items: baseline; /* Align the labels with the baseline of the inputs */
+    }
+    .dob-input {
+      flex: 1;
+      margin-right: 0.5rem;
+    }
+    .dob-label {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 0%; /* 14.4px */
+      letter-spacing: 0.12px;
+      margin-top: 0.1px; /* Reduce the margin-top for DD MM YYYY labels */
+      margin-bottom: 1.2rem; /* Align the labels to the left side of the input box */
+    }
+    .dob-label-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Align the labels to the left side of the input box */
+    }
+    /* Disable input fields */
+    .disabled-input {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Styling for the Update button */
+    .update-button {
+      border-radius: 12px;
+      border: 1px solid rgba(41, 45, 50, 0.00);
+      background: var(--primary-blue, #2C64E4);
+      box-shadow: 0px 4px 5px 0px rgba(44, 100, 228, 0.25), 3px 0px 5px 0px rgba(44, 100, 228, 0.25);
+      color: #fff;
+      padding: 0.5rem;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      letter-spacing: 0.12px;
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem; /* Add margin above the Update button */
+    }
+
+    .update-button:hover {
+      cursor: pointer;
+      background-color: #3F6AF8;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .form-container {
+        margin: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-group">
+    <div class="back-button" onclick="goBack()">&larr;</div>
+    <h3 class="profile-heading">Profile</h3>
+  </div>
+
+  <div class="form-container">
+    <label for="email">Your email</label>
+    <input type="text" id="email" class="input-field disabled-input" value="user@example.com" disabled>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" class="input-field" oninput="validateName(this)">
+
+    <div class="error-message" id="name-error"></div>
+
+    <label for="phone">Phone number (optional)</label>
+    <input type="text" id="phone" class="input-field">
+
+    <div class="dob-label">Date of Birth (optional)</div>
+    <div class="dob-inputs">
+      <div class="dob-input">
+        <div class="dob-label-group">
+          <input type="text" id="dob-day" class="input-field dob-input" oninput="validateDay(this)">
+          <label for="dob-day" class="dob-label">DD</label>
+        </div>
+        <div class="error-message" id="day-error"></div>
+      </div>
+      <div class="dob-input">
+        <div class="dob-label-group">
+          <input type="text" id="dob-month" class="input-field dob-input" oninput="validateMonth(this)">
+          <label for="dob-month" class="dob-label">MM</label>
+        </div>
+        <div class="error-message" id="month-error"></div>
+      </div>
+      <div class="dob-input">
+        <div class="dob-label-group">
+          <input type="text" id="dob-year" class="input-field dob-input" oninput="validateYear(this)">
+          <label for="dob-year" class="dob-label">YYYY</label>
+        </div>
+        <div class="error-message" id="year-error"></div>
+      </div>
+    </div>
+
+    <label for="country">Country</label>
+    <input type="text" id="country" class="input-field disabled-input" value="India" disabled>
+
+    <label for="postal">Postal code (optional)</label>
+    <input type="text" id="postal" class="input-field">
+
+    <!-- Error message will be displayed here if needed -->
+    <div class="error-message" id="error-message"></div>
+
+    <!-- Update button -->
+    <div class="update-button" onclick="submitForm()">Update</div>
+  </div>
+
+  <script>
+    // JavaScript code for handling validation and error messages (optional)
+    // You can use this script to validate the input fields and display error messages if needed.
+
+    // Function to check if an input field is empty or not
+    function isEmpty(value) {
+      return value.trim() === '';
+    }
+
+    // Function to validate the Date of Birth inputs
+    function isValidDate(day, month, year) {
+      const dayInt = parseInt(day, 10);
+      const monthInt = parseInt(month, 10);
+      const yearInt = parseInt(year, 10);
+
+      if (dayInt < 1 || dayInt > 31 || monthInt < 1 || monthInt > 12 || yearInt < 1900 || yearInt > 2100) {
+        return false;
+      }
+
+      const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+      if (monthInt === 2) {
+        if ((yearInt % 4 === 0 && yearInt % 100 !== 0) || yearInt % 400 === 0) {
+          return dayInt <= 29;
+        }
+        return dayInt <= 28;
+      }
+      return dayInt <= daysInMonth[monthInt - 1];
+    }
+
+    // Function to handle form submission
+    function submitForm() {
+      // Get the values from the input fields
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const day = document.getElementById('dob-day').value;
+      const month = document.getElementById('dob-month').value;
+      const year = document.getElementById('dob-year').value;
+      const postal = document.getElementById('postal').value;
+
+      // Clear previous error messages
+      document.getElementById('error-message').innerText = '';
+      document.getElementById('name-error').innerText = '';
+      document.getElementById('day-error').innerText = '';
+      document.getElementById('month-error').innerText = '';
+      document.getElementById('year-error').innerText = '';
+
+      // Create an array to collect all error messages
+      const errors = [];
+
+      // Validate the input fields (if needed)
+      if (isEmpty(name)) {
+        errors.push('Name field cannot be empty.');
+      } else if (!name.match(/^[a-zA-Z\s]+$/)) {
+        errors.push('Please enter only alphabetic characters for the name.');
+      }
+
+      if (phone !== '' && !/^\d{10}$/.test(phone)) {
+        errors.push('Please enter a valid phone number.');
+      }
+
+      if (day !== '' && month !== '' && year !== '') {
+        if (!day.match(/^\d+$/)) {
+          errors.push('Please enter numeric values for the day.');
+        }
+        if (!month.match(/^\d+$/)) {
+          errors.push('Please enter numeric values for the month.');
+        }
+        if (!year.match(/^\d+$/)) {
+          errors.push('Please enter numeric values for the year.');
+        }
+        if (!isValidDate(day, month, year)) {
+          errors.push('Please enter a valid date of birth.');
+        }
+      }
+
+      // If there are errors, show them and stop form submission
+      if (errors.length > 0) {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerHTML = errors.map((error) => `<p>${error}</p>`).join('');
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      // If all validation passed, you can proceed with form submission or any other actions.
+      // Example: Submit the form or update user profile.
+      alert('Form submitted successfully!');
+    }
+
+    // Function to show error message
+    function showError(message) {
+      const errorMessage = document.getElementById('error-message');
+      errorMessage.innerHTML = message;
+      errorMessage.style.display = message ? 'block' : 'none';
+    }
+
+    // Function to validate name
+    function validateName(input) {
+      const nameError = document.getElementById('name-error');
+      if (!input.value.match(/^[a-zA-Z\s]+$/)) {
+        nameError.innerText = 'Please enter only alphabetic characters for the name.';
+      } else {
+        nameError.innerText = '';
+      }
+    }
+
+    // Function to validate day
+    function validateDay(input) {
+      const dayError = document.getElementById('day-error');
+      if (!input.value.match(/^\d+$/)) {
+        dayError.innerText = 'Please enter numeric values for the day.';
+      } else {
+        dayError.innerText = '';
+      }
+    }
+
+    // Function to validate month
+    function validateMonth(input) {
+      const monthError = document.getElementById('month-error');
+      if (!input.value.match(/^\d+$/)) {
+        monthError.innerText = 'Please enter numeric values for the month.';
+      } else {
+        monthError.innerText = '';
+      }
+    }
+    
+    // Function to validate phone number
+    function validatePhone(input) {
+      const phoneError = document.getElementById('phone-error');
+      if (input.value !== '' && !/^\d{10}$/.test(input.value)) {
+        phoneError.innerText = 'Please enter a valid phone number.';
+      } else {
+        phoneError.innerText = '';
+      }
+    }
+
+    // Function to validate year
+    function validateYear(input) {
+      const yearError = document.getElementById('year-error');
+      if (!input.value.match(/^\d+$/)) {
+        yearError.innerText = 'Please enter numeric values for the year.';
+      } else {
+        yearError.innerText = '';
+      }
+    }
+
+    // JavaScript function to go back
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
